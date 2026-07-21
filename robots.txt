@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mzashah.github.io/babycam-releases/sitemap.xml

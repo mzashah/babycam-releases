@@ -6,12 +6,49 @@
 <title>BabyCam — Turn two old phones into a private baby monitor</title>
 <meta name="description" content="BabyCam turns two Android phones into a private, end-to-end encrypted baby monitor. Live video &amp; two-way talk, lullabies, remote control. Free — no account, no subscription. Download the APK.">
 <meta name="theme-color" content="#070B14">
+<!-- Firebase / Google Analytics 4 (project babycam-9a699, web app "BabyCam Website").
+     Reports page visits + a custom "download_click" event to the Firebase console → Analytics. -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-392VNW13KD"></script>
+<script>
+  window.dataLayer=window.dataLayer||[];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-392VNW13KD');
+</script>
 <link rel="canonical" href="https://mzashah.github.io/babycam-releases/">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="keywords" content="baby monitor app, free baby monitor, android baby monitor, private baby cam, two phone baby monitor, nanny cam app, baby monitor no subscription, encrypted baby monitor, white noise, two-way talk">
+<meta name="author" content="Zuhaib Ali Shah">
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="BabyCam">
 <meta property="og:title" content="BabyCam — a private baby monitor from two old phones">
 <meta property="og:description" content="Live video, two-way talk, lullabies, remote control — end-to-end encrypted. Free, no account, no subscription. Android APK download.">
 <meta property="og:url" content="https://mzashah.github.io/babycam-releases/">
+<meta property="og:image" content="https://mzashah.github.io/babycam-releases/assets/og-image.png">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="500">
+<meta property="og:image:alt" content="BabyCam — a private baby monitor built from two Android phones">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="BabyCam — a private baby monitor from two old phones">
+<meta name="twitter:description" content="Live video, two-way talk, lullabies, remote control — end-to-end encrypted. Free, no account, no subscription.">
+<meta name="twitter:image" content="https://mzashah.github.io/babycam-releases/assets/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "BabyCam — Baby Monitor",
+  "operatingSystem": "Android 8.0+",
+  "applicationCategory": "LifestyleApplication",
+  "description": "Turn two Android phones into a private, end-to-end encrypted baby monitor. Live video and two-way talk, lullabies and white noise, remote camera/mic/flashlight control, safety reminders, and app lock. Free — no account, no subscription, no cloud recording.",
+  "url": "https://mzashah.github.io/babycam-releases/",
+  "downloadUrl": "https://github.com/mzashah/babycam-releases/releases/latest/download/app-release.apk",
+  "softwareVersion": "1.2",
+  "fileSize": "40MB",
+  "image": "https://mzashah.github.io/babycam-releases/assets/og-image.png",
+  "author": { "@type": "Person", "name": "Zuhaib Ali Shah" },
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+}
+</script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23534AB7'/%3E%3Cg fill='none' stroke='%23fff' stroke-width='3.5' stroke-linecap='round'%3E%3Ccircle cx='32' cy='30' r='16'/%3E%3Ccircle cx='25' cy='28' r='1.6' fill='%23fff' stroke='none'/%3E%3Ccircle cx='39' cy='28' r='1.6' fill='%23fff' stroke='none'/%3E%3Cpath d='M25 36c2.2 2.4 4.6 3.6 7 3.6s4.8-1.2 7-3.6'/%3E%3C/g%3E%3C/svg%3E">
 <style>
   :root{
@@ -168,12 +205,13 @@
   .step p{color:var(--text-2);font-size:14.5px;margin:0}
 
   /* gallery */
-  .gallery{display:flex;gap:20px;overflow-x:auto;padding:6px 22px 24px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+  .gallery{overflow-x:auto;padding-bottom:8px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
   .gallery::-webkit-scrollbar{height:8px}
   .gallery::-webkit-scrollbar-thumb{background:rgba(255,255,255,.14);border-radius:99px}
+  .gallery-track{display:flex;gap:22px;width:max-content;margin:0 auto;padding:6px 22px 20px}
   .shot{flex:none;scroll-snap-align:center;text-align:center;transition:transform .2s}
   .shot:hover{transform:translateY(-6px)}
-  .shot img{width:230px;height:auto;border-radius:26px;filter:drop-shadow(0 20px 44px rgba(0,0,0,.5))}
+  .shot img{width:206px;height:auto;border-radius:24px;filter:drop-shadow(0 20px 44px rgba(0,0,0,.5))}
   .shot span{display:block;margin-top:14px;color:var(--muted);font-size:13.5px;font-weight:600}
 
   /* privacy */
@@ -203,6 +241,25 @@
   .foot-grid{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center}
   .foot-links{display:flex;gap:22px;flex-wrap:wrap}
   .foot-links a{color:var(--text-2)}.foot-links a:hover{color:var(--text)}
+  .dev-card{margin-top:28px;padding:20px 22px;border:1px solid var(--line);border-radius:18px;
+    background:linear-gradient(180deg,rgba(127,119,221,.08),rgba(255,255,255,.015));
+    display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+  .dev-avatar{flex:none;width:52px;height:52px;border-radius:15px;display:grid;place-items:center;
+    font-weight:800;font-size:18px;letter-spacing:.02em;color:#fff;
+    background:linear-gradient(150deg,var(--indigo-deep),var(--teal));
+    box-shadow:0 8px 22px rgba(83,74,183,.35)}
+  .dev-main{min-width:0}
+  .dev-label{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:3px}
+  .dev-name{color:var(--text);font-weight:800;font-size:17px;line-height:1.2}
+  .dev-role{color:var(--muted);font-size:13px;margin-top:2px}
+  .dev-contacts{display:flex;gap:10px;flex-wrap:wrap;margin-top:11px}
+  .dev-chip{display:inline-flex;align-items:center;gap:8px;padding:8px 13px;border-radius:11px;
+    border:1px solid var(--line-2);background:rgba(255,255,255,.03);color:var(--text-2);
+    font-size:13.5px;font-weight:600;transition:border-color .15s,color .15s,background .15s}
+  .dev-chip svg{width:16px;height:16px;flex:none;color:var(--indigo)}
+  .dev-chip:hover{color:var(--text);border-color:var(--indigo);background:rgba(127,119,221,.1)}
+  .dev-chip-wa svg{color:#25D366}
+  .dev-chip-wa:hover{border-color:#25D366;background:rgba(37,211,102,.1)}
   .foot-note{margin-top:20px;font-size:12.5px;line-height:1.6;max-width:70ch}
 
   @media(max-width:560px){
@@ -218,6 +275,7 @@
     .reveal{opacity:1!important;transform:none!important}
   }
 </style>
+<noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
 
@@ -320,11 +378,13 @@
 <section style="padding-top:0">
   <div class="wrap"><div class="sec-head reveal"><span class="kicker">A look inside</span><h2>Clean, calm, purpose-built</h2></div></div>
   <div class="gallery">
-    <div class="shot reveal"><img src="assets/01_welcome.svg" alt="Welcome screen" loading="lazy"><span>Welcome</span></div>
-    <div class="shot reveal d1"><img src="assets/02_choose_device.svg" alt="Choose device role" loading="lazy"><span>Choose device</span></div>
-    <div class="shot reveal d2"><img src="assets/03_baby_pairing.svg" alt="Baby pairing code" loading="lazy"><span>Baby pairing</span></div>
-    <div class="shot reveal d3"><img src="assets/04_baby_active.svg" alt="Baby monitoring active" loading="lazy"><span>Baby — active</span></div>
-    <div class="shot reveal d4"><img src="assets/05_parent_live.svg" alt="Parent live view" loading="lazy"><span>Parent — live view</span></div>
+    <div class="gallery-track">
+      <div class="shot reveal"><img src="assets/01_welcome.svg" alt="Welcome screen" loading="lazy"><span>Welcome</span></div>
+      <div class="shot reveal d1"><img src="assets/02_choose_device.svg" alt="Choose device role" loading="lazy"><span>Choose device</span></div>
+      <div class="shot reveal d2"><img src="assets/03_baby_pairing.svg" alt="Baby pairing code" loading="lazy"><span>Baby pairing</span></div>
+      <div class="shot reveal d3"><img src="assets/04_baby_active.svg" alt="Baby monitoring active" loading="lazy"><span>Baby — active</span></div>
+      <div class="shot reveal d4"><img src="assets/05_parent_live.svg" alt="Parent live view" loading="lazy"><span>Parent — live view</span></div>
+    </div>
   </div>
 </section>
 
@@ -387,6 +447,28 @@
         <a href="mailto:mz.ashah@outlook.com">Contact</a>
       </div>
     </div>
+    <div class="dev-card">
+      <div class="dev-avatar" aria-hidden="true">ZA</div>
+      <div class="dev-main">
+        <span class="dev-label">Developer</span>
+        <div class="dev-name">Zuhaib Ali Shah</div>
+        <div class="dev-role">Independent developer · builder of BabyCam</div>
+        <div class="dev-contacts">
+          <a class="dev-chip" href="mailto:mz.ashah@outlook.com">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+            <span>mz.ashah@outlook.com</span>
+          </a>
+          <a class="dev-chip dev-chip-wa" href="https://wa.me/923152879102" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.23 8.23 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.83c0 4.55-3.7 8.24-8.24 8.24Zm4.52-6.17c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.8-.79.97-.14.16-.29.18-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43-.14-.01-.31-.01-.48-.01-.16 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.16 1.75 2.67 4.25 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
+            <span>+92 315 2879102 · WhatsApp</span>
+          </a>
+          <a class="dev-chip" href="tel:+923152879102">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L8 9.6a16 16 0 0 0 6 6l1.1-1.1a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2Z"/></svg>
+            <span>Call</span>
+          </a>
+        </div>
+      </div>
+    </div>
     <p class="foot-note">Android only — iOS does not allow continuous background camera access for third-party
       apps. Video &amp; audio stream peer-to-peer between your two phones and are end-to-end encrypted;
       BabyCam has no server that can see your stream. BabyCam is a personal, free project — not affiliated
@@ -413,6 +495,14 @@
     .then(function(r){return r.ok?r.json():null})
     .then(function(v){ if(v&&v.versionName){document.getElementById("ver").textContent="Latest: v"+v.versionName;} })
     .catch(function(){});
+  // analytics: count APK download clicks (fires the "download_click" event to Firebase/GA4)
+  (function(){
+    document.querySelectorAll('a[href$="app-release.apk"]').forEach(function(a){
+      a.addEventListener('click',function(){
+        if(typeof gtag==='function'){gtag('event','download_click',{location:a.getAttribute('data-loc')||'page'});}
+      });
+    });
+  })();
 </script>
 </body>
 </html>
